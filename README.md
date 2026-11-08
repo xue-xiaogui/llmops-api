@@ -1,4 +1,4 @@
-# llmops-api
+# 项目名称 llmops-api
 
 基于 Flask 的 LLM 应用后端，集成 LangChain、LLM、Embedding 等能力。
 
