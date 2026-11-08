@@ -1,0 +1,9 @@
+# 默认应用配置
+DEFAULT_CONFIG = {
+    # SQLAlchemy 数据库配置
+    "SQLALCHEMY_DATABASE_URI": "",
+    "SQLALCHEMY_ECHO": "true",
+    "SQLALCHEMY_POOL_SIZE": 30,
+    "SQLALCHEMY_POOL_RECYCLE": 3600,
+    "WTF_CSRF_ENABLED": "false",
+}
