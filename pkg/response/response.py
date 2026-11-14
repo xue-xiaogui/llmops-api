@@ -12,8 +12,14 @@ class Response:
     data: Any = field(default_factory=dict)
 
 def json(data: Response = None):
+    response = jsonify(data)
+    # 添加跨域响应头
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+    response.headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+    response.headers.add("Access-Control-Allow-Credentials", "true")
     # 基础响应格式
-    return jsonify(data), 200
+    return response, 200
    
 def success_json(data: Any = None):
     # 成功响应

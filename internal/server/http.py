@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from internal.router.router import Router
 from config import Config   
 from internal.exception import CustomException
@@ -21,6 +22,13 @@ class Http(Flask):
         # 4.注册数据库扩展
         db.init_app(self)
         migrate.init_app(self, db, directory="internal/migration")
+ 
+        CORS(self, resources={r"/*": {
+            "origins": "*",
+            "supports_credentials": True,
+            # "methods": ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
+            # "allow_headers": ["Content-Type"]
+        }})
 
         # 5.注册应用路由
         router.register_routes(self)
